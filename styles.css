@@ -20,17 +20,17 @@ html, body {
     z-index: -1;   /* 保證背景層在表單後面 */
 }
 .background::after {
-    content: ""; /* 必须定义伪元素 */
+    content: "";
     position: absolute;  /* 绝对定位，使其覆盖在背景图片上 */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* 半透明的黑色背景 */
-    pointer-events: none; /* 使该层不影响页面上的其他交互 */
+    pointer-events: none; /* 確保陰影不影響頁面上的其他交互 */
 }
 
-/* 设置 body 和 html 为 flex 布局，确保页面居中 */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -39,10 +39,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;  /* 使用视口的高度 */
+    height: 100vh;  
 }
 
-/* 表单容器 */
+/* 表單容器 */
 .form-container {
     background-color: rgba(255, 255, 255, 0.5); 
     padding: 2px;
@@ -57,7 +57,7 @@ body {
     min-height: 300px;  /* 确保表单有最小高度 */
 }
 
-/* 标题样式 */
+/* 標题样式 */
 h1 {
     text-align: center;
     color: white;
@@ -65,18 +65,18 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* 信箱图示和信箱显示 */
+/* 信箱圖示和信箱縣示 */
 .email-display {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;  /* 调整信箱区域的底部间距 */
+    margin-bottom: 20px;  /* 信箱區域的底部間距 */
 }
 
 .email-icon {
-    width: 40px;  /* 设置信箱图示大小 */
+    width: 40px;  /* 信箱圖示大小 */
     height: auto;
-    margin-right: 10px;  /* 让图标与信箱地址之间有间隔 */
+    margin-right: 10px;  /* 圖標 信箱地址之間间隔 */
 }
 
 #email-display {
@@ -85,7 +85,7 @@ h1 {
     word-wrap: break-word; /* 确保长电子邮件地址换行显示 */
 }
 
-/* 输入框样式 */
+/* 輸入框 */
 label {
     display: block;
     margin: 10px 0 5px;
@@ -101,7 +101,6 @@ input {
     font-size: 16px;
 }
 
-/* 提交按钮样式 */
 button {
     padding:20px;
     font-size: 1.2em;
@@ -121,12 +120,12 @@ button:hover {
     background-color: rgba(79, 245, 135, 0.8);  /* 鼠标悬停时改变按钮背景色 */
 }
 
-/* 提示訊息 */
+
 p {
     font-size: 1.1em;
     color: #555;
     margin-bottom: 20px;
-    text-align: center;  /* 让提示信息居中显示 */
+    text-align: center;  
 }
 
 /* 驗證碼輸入框樣式 */

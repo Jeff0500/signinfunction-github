@@ -4,31 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>註冊頁面</title>
-    <link rel="stylesheet" href="styles.css"> <!-- 引用CSS文件 -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <div class="background"></div>
     <div class="form-container">
         <h1>創建帳號</h1>
+        <!--讓使用者輸入的表單-->
         <form action="selfinfocheck.php" method="post">
             <label for="first-name">姓：</label>
             <input type="text" id="first-name" name="first-name" required>
 
             <label for="last-name">名：</label>
             <input type="text" id="last-name" name="last-name" required>
-            <!-- 电话 -->
             <label for="phone">電話(手機)：</label>
             <input type="text" id="phone" name="phone" pattern="09[0-9]{8}" required placeholder="例如：0912345678">
-        
-            <!-- 电子信箱 -->
             <label for="email">電子信箱：</label>
             <input type="email" id="email" name="email" required placeholder="例如：a1234567@gmail.com">
-        
-            <!-- 生日 -->
             <label for="birthday">生日：</label>
             <input type="date" id="birthday" name="birthday" required>
-        
-            <!-- 注册按钮 -->
             <button type="submit" class="button">開始註冊</button>
         </form>
     </div>
