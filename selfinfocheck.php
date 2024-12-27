@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('s1092008@gm.pu.edu.tw', '購物網站');
+        $mail->setFrom($_ENV['MAIL_USERNAME'], '購物網站');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = '電子郵件驗證碼';
