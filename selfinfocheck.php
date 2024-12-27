@@ -97,9 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verification-code']))
                 // 顯示從 session 獲取的電子信箱
                 if (isset($_SESSION['email'])) {
                     echo htmlspecialchars($_SESSION['email']);
-                    echo $_ENV['MAIL_USERNAME'];
-                    echo $_ENV['MAIL_PASSWORD'];
-                    var_dump($_ENV);
                 }
                 ?>
             </span>
