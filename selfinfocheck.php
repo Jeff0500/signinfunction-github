@@ -2,11 +2,15 @@
 session_start();
 
 // 引入 PHPMailer 和 Exception 
+require_once __DIR__ . '/vendor/autoload.php';
+require 'vendor/autoload.php';
+use Dotenv\Dotenv;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // 使用 Composer 自動載入 PHPMailer
-require 'vendor/autoload.php';
 
 // 如果收到 POST 請求，處理電子信箱
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
@@ -32,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 's1092008@gm.pu.edu.tw'; 
-        $mail->Password = 'nstg auwi ptns ymye '; 
+        $mail->Username = $_ENV['MAIL_USERNAME']; // 使用 $_ENV 來取得環境變數
+        $mail->Password = $_ENV['MAIL_PASSWORD'];  // 讀取 .env 中的 MAIL_PASSWORD (請根據.env.example檔案自行更改寄件人密碼)
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';
@@ -93,6 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verification-code']))
                 // 顯示從 session 獲取的電子信箱
                 if (isset($_SESSION['email'])) {
                     echo htmlspecialchars($_SESSION['email']);
+                    echo $_ENV['MAIL_USERNAME'];
+                    echo $_ENV['MAIL_PASSWORD'];
+                    var_dump($_ENV);
                 }
                 ?>
             </span>
